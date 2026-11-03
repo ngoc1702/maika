@@ -124,6 +124,17 @@ function caia_add_font_website(){
 }
 
 
+// Use the logo widget instead of the legacy theme logo.
+remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
+remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
+
+add_filter( 'genesis_search_text', function() {
+    return 'Tìm kiếm sản phẩm...';
+} );
+add_filter( 'genesis_search_button_text', function() {
+    return 'Tìm kiếm';
+} );
+
 add_action( 'genesis_header', function() {
     if ( is_active_sidebar( 'header-main' ) ) {
         echo '<div class="header-main-widget-area"><div class="wrap">';
