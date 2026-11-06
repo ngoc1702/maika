@@ -32,6 +32,9 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 // Thêm css
 add_action('wp_footer', 'caia_add_style_css_breadcrum');
 function caia_add_style_css_breadcrum(){
+	if ( ! function_exists( 'rwmb_meta' ) ) {
+		return;
+	}
 	$breadcrumb_image = rwmb_meta( 'breadcrumb_image', ['size' => 'full'] );
 	if( !empty( $breadcrumb_image ) ){
 		?>

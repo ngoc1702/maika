@@ -134,12 +134,12 @@ function gf_save_featureddata($post_id) {
     // verify this came from the our screen and with proper authorization,
     // because save_post can be triggered at other times
     
-    if ( !wp_verify_nonce( $_POST['gf_nonce'], plugin_basename( __FILE__ ) ) )
+    if ( empty($_POST['gf_nonce']) || !wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['gf_nonce'])), plugin_basename( __FILE__ ) ) )
         return;
     
     
     // Check permissions
-    if ( 'page' === $_POST['post_type'] ) {
+    if ( 'page' === get_post_type($post_id) ) {
         return;
     }
     else {

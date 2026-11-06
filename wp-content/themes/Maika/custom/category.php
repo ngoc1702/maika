@@ -1,68 +1,37 @@
 <?php
+/** Blog category listing uses the main WordPress query and its pagination. */
 get_header();
 ?>
-<h1 class="cat-title"><?php single_cat_title(); ?></h1>
-<?php
-$desc = category_description(); // lấy mô tả danh mục hiện tại (đã có HTML)
-if ( ! empty( $desc ) ) : ?>
-  <div class="cat-description">
-    <?php echo $desc; ?>
-  </div>
-<?php endif; ?>
+<header class="maika-blog-archive-header">
+    <h1 class="cat-title maika-archive-title"><?php single_cat_title(); ?></h1>
+    <?php $description = category_description(); ?>
+    <?php if ($description) : ?>
+        <div class="cat-description"><?php echo wp_kses_post($description); ?></div>
+    <?php endif; ?>
+</header>
 
-
-<div class="blog-wrapper category-blog">
-
-<?php if ( have_posts() ) : ?>
-    
-    <?php while ( have_posts() ) : the_post(); ?>
-
-        <article class="blog-item">
-            <a href="<?php the_permalink(); ?>" class="blog-thumb">
-                <?php
-                if ( has_post_thumbnail() ) {
-                    the_post_thumbnail( 'medium' );
-                }
-                ?>
-            </a>
-
-            <div class="blog-info">
-                <h2 class="blog-title">
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                    </a>
-                </h2>
-
-                <div class="blog-meta">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <span class="blog-date">
-                        <?php echo get_the_date('d/m/Y'); ?>
-                    </span>
-                </div>
-
-                <div class="blog-excerpt">
-                    <?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?>
-                </div>
-            </div>
-        </article>
-
-    <?php endwhile; ?>
-
-</div>
-
-<div class="pagination">
-    <?php
-    echo paginate_links( array(
-        'prev_text' => '«',
-        'next_text' => '»',
-    ) );
-    ?>
-</div>
-
+<?php if (have_posts()) : ?>
+    <div class="blog-wrapper category-blog">
+        <?php while (have_posts()) : the_post(); ?>
+            <?php get_template_part('custom/post-card'); ?>
+        <?php endwhile; ?>
+    </div>
+    <?php global $wp_query; ?>
+    <?php if ($wp_query->max_num_pages > 1) : ?>
+        <nav class="maika-blog-pagination" aria-label="Phân trang bài viết">
+            <?php
+            echo wp_kses_post(paginate_links(array(
+                'current' => max(1, (int) get_query_var('paged')),
+                'total' => $wp_query->max_num_pages,
+                'type' => 'list',
+                'mid_size' => 2,
+                'prev_text' => '<span aria-hidden="true">«</span><span class="screen-reader-text">Trang trước</span>',
+                'next_text' => '<span class="screen-reader-text">Trang sau</span><span aria-hidden="true">»</span>',
+            )));
+            ?>
+        </nav>
+    <?php endif; ?>
 <?php else : ?>
-
-    <p>Không có bài viết nào trong chuyên mục này.</p>
-
+    <p class="maika-blog-empty">Không có bài viết nào trong chuyên mục này.</p>
 <?php endif; ?>
-
 <?php get_footer(); ?>

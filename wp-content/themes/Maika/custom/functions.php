@@ -1,49 +1,20 @@
 <?php
 
-
-
 // Bật HTML5
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
 // Thêm metabox
-include('metabox.php');
+require_once __DIR__ . '/metabox.php';
 
 // Cấu hình ACF Pro cho template Trang chủ.
 require_once __DIR__ . '/acf-trangchu.php';
 
-
-// Thêm caiajs
-include('js/caiajs.php');
-
-// Thêm jquery
-add_action('wp_enqueue_scripts', 'caia_add_scripts_homes');
-function caia_add_scripts_homes(){
-	wp_enqueue_script('caia-slick', CHILD_URL.'/custom/js/slick.js', array('jquery'));
-}
-
-function add_swiper_webcomponent_script() {
-    echo '<script type="module">
-      import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js";
-    </script>';
-}
-add_action('wp_footer', 'add_swiper_webcomponent_script');
-
-
-
-
 add_action('wp_enqueue_scripts', 'custom_override_style', 100);
 function custom_override_style() {
-    // Đảm bảo đúng với theme con
     $style_path = get_stylesheet_directory() . '/style.css';
-    $version = file_exists($style_path) ? filemtime($style_path) : time();
-
-    // Handle thực tế (cập nhật lại nếu bạn tìm thấy tên khác sau bước kiểm tra)
-    $handle = 'caia';
-
-    // Gỡ bỏ và thêm lại
-    wp_dequeue_style($handle);
-    wp_deregister_style($handle);
-    wp_enqueue_style($handle, get_stylesheet_uri(), array(), $version);
+    $version = file_exists($style_path) ? filemtime($style_path) : null;
+    wp_enqueue_style('caia', get_stylesheet_uri(), array(), $version);
+    wp_styles()->registered['caia']->ver = $version;
 }
 //Cho phép upload ảnh định dạng Svg
 add_filter('upload_mimes', 'caia_mime_types', 1, 1);
@@ -80,9 +51,12 @@ add_filter( 'intermediate_image_sizes', function( $sizes ){
     });
 });
 
-// Đặt kích thước mặc định cho website
-update_option( 'thumbnail_size_w', 750 );
-update_option( 'thumbnail_size_h', 395 );
+// Configure saved thumbnail defaults on theme activation, not every request.
+add_action('after_switch_theme', 'maika_set_thumbnail_defaults');
+function maika_set_thumbnail_defaults() {
+    update_option('thumbnail_size_w', 750);
+    update_option('thumbnail_size_h', 395);
+}
 
 // Thêm kích thước ảnh sản phẩm
 add_image_size('product-image',640,640,true);
@@ -117,12 +91,9 @@ function caia_add_font_website(){
 	?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
 	<?php
 }
-
 
 // Use the logo widget instead of the legacy theme logo.
 remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
@@ -142,11 +113,6 @@ add_action( 'genesis_header', function() {
         echo '</div></div>';
     }
 }, 16 ); 
-
-
-
-
-
 
 genesis_register_sidebar( 
 	array(
@@ -178,8 +144,6 @@ function caia_add_contactus(){
 	}
 }
 
-
-
 remove_action('genesis_footer','genesis_do_footer');
 add_action('genesis_footer','caia_add_content_footer');
 function caia_add_content_footer(){
@@ -205,12 +169,20 @@ function caia_add_content_after_footer2(){
 
 add_action('genesis_after_footer','caia_add_content_fix');
 function caia_add_content_fix(){
+	echo '<aside class="content-fix" aria-label="Liên hệ nhanh">';
 	if( is_active_sidebar( 'content-fix' ) ){
-		echo '<div class="content-fix">';
-			dynamic_sidebar( 'Toàn bộ - Nội dung cố định' );		
-		echo '</div>';
+		dynamic_sidebar( 'content-fix' );
 	}
+	echo '<button type="button" class="maika-back-to-top" aria-label="Cuộn lên đầu trang" title="Lên đầu trang"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></button></aside>';
 }
+// Use one shared back-to-top button beneath the contact widget.
+add_action('after_setup_theme', function () {
+    remove_action('wp_head', 'caia_before_show_back_to_top');
+}, 30);
+add_action('wp_enqueue_scripts', function () {
+    $path = get_stylesheet_directory() . '/custom/floating-contact.js';
+    wp_enqueue_script('maika-floating-contact', get_stylesheet_directory_uri() . '/custom/floating-contact.js', array(), filemtime($path), true);
+});
 
 // Chỉnh hiển thị nút Next Page và Previous Page trong phân trang
 add_filter ( 'genesis_next_link_text' , 'caia_next_page_link' );
@@ -226,8 +198,6 @@ function caia_previous_page_link( $text ) {
 // Thay đổi vị trí breadcrumbs
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 add_action( 'genesis_after_header', 'genesis_do_breadcrumbs',9);
-
-
 
 // Tùy biến breadcrumbs trong Genesis
 add_filter( 'genesis_breadcrumb_args', 'caia_breadcrumb_args' );
@@ -250,8 +220,6 @@ function caia_breadcrumb_args( $args ){
 	$args['labels']['404'] = '';
 	return $args;
 }
-
-
 
 // Thiết kế lại form comment
 add_filter( 'comment_form_defaults', 'rayno_comment_form_args' );
@@ -313,7 +281,7 @@ function caia_custom_reply_title( $defaults ){
 
 // Thêm nút comment
 add_action( 'comment_form_logged_in_after', 'additional_fields',1 );
-add_action( 'comment_form_after_fields', 'additional_fields',1 );
+add_action( 'comment_form_after_fields', 'additional_fields',1 );   
 function additional_fields (){
 	if(!is_user_logged_in()){
 		echo '<p class="comment-form-phone"><input id="author" name="phone" type="text" size="30" tabindex="4" placeholder="Số điện thoại"/></p>
@@ -404,10 +372,6 @@ function wp_youtube_video($atts) {
     }
 add_shortcode('youtube', 'wp_youtube_video');
 
-
-
-
-
 // Thêm Font Awesome vào website
 function load_fontawesome6() {
     wp_enqueue_style(
@@ -419,7 +383,6 @@ function load_fontawesome6() {
 }
 add_action( 'wp_enqueue_scripts', 'load_fontawesome6' );
 
-
 // Mobile
 if (wp_is_mobile() ){
 	// remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
@@ -427,6 +390,46 @@ if (wp_is_mobile() ){
 
 }
 
+// Product navigation and homepage banner.
+require_once __DIR__ . '/header-home.php';
 
+// Homepage partner reviews.
+require_once __DIR__ . '/home-reviews.php';
 
+// Homepage selected articles.
+require_once __DIR__ . '/home-news.php';
 
+// Homepage Fluent Forms consultation section.
+require_once __DIR__ . '/home-consultation.php';
+
+// Blog category page size.
+require_once __DIR__ . '/blog-archive.php';
+
+// Shared navigation for categories, pages, search and detail screens.
+require_once __DIR__ . '/site-navigation.php';
+
+// Blog post typography and related sidebar.
+require_once __DIR__ . '/single-post.php';
+
+// Homepage partner logo strip.
+require_once __DIR__ . '/home-partners.php';
+
+// Contact page content fields.
+require_once __DIR__ . '/acf-lienhe.php';
+
+// Scrollable tables in blog posts and the about page.
+add_action('wp_enqueue_scripts', function () {
+    if (is_singular(array('post', 'product')) || is_page_template('page-gioithieu.php')) {
+        $path = get_stylesheet_directory() . '/custom/article-tables.js';
+        wp_enqueue_script('maika-article-tables', get_stylesheet_directory_uri() . '/custom/article-tables.js', array(), filemtime($path), true);
+    }
+});
+
+// Product archive, gallery and editable contact buttons.
+require_once __DIR__ . '/products.php';
+
+// Editable service benefits on product detail pages.
+require_once __DIR__ . '/product-benefits.php';
+
+// Homepage product category rails configured in ACF.
+require_once __DIR__ . '/home-product-sections.php';

@@ -24,6 +24,7 @@ function xenang_register_contact_fields() {
 					'label' => 'Thông tin liên hệ',
 					'type'  => 'tab',
 				),
+                array('key' => 'field_contact_top_bg', 'name' => 'contact_top_bg', 'label' => 'Ảnh nền góc trái', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Để trống dùng nền trang trí mặc định.'),
 				array(
 					'key'           => 'field_contact_heading',
 					'label'         => 'Tiêu đề chính',
@@ -64,6 +65,7 @@ function xenang_register_contact_fields() {
 								'headset'      => 'Hotline',
 								'envelope'     => 'Email',
 								'clock'        => 'Giờ làm việc',
+                                'globe' => 'Website',
 							),
 						),
 						array(
@@ -77,7 +79,7 @@ function xenang_register_contact_fields() {
 							'key'           => 'field_contact_item_link',
 							'label'         => 'Liên kết',
 							'name'          => 'link',
-							'type'          => 'url',
+							'type'          => 'text',
 							'instructions'  => 'Có thể nhập tel: hoặc mailto:',
 						),
 					),
@@ -98,10 +100,20 @@ function xenang_register_contact_fields() {
 							'choices' => array(
 								'facebook-f' => 'Facebook',
 								'tiktok'     => 'TikTok',
+                                'zalo' => 'Zalo',
 								'youtube'    => 'YouTube',
 								'instagram'  => 'Instagram',
 							),
 						),
+                        array(
+                            'key' => 'field_contact_social_image',
+                            'label' => 'Ảnh icon',
+                            'name' => 'image',
+                            'type' => 'image',
+                            'return_format' => 'id',
+                            'preview_size' => 'thumbnail',
+                            'instructions' => 'Để trống dùng icon mặc định theo mạng xã hội.',
+                        ),
 						array(
 							'key'      => 'field_contact_social_url',
 							'label'    => 'Đường dẫn',
@@ -113,16 +125,15 @@ function xenang_register_contact_fields() {
 				),
 				array(
 					'key'   => 'field_contact_tab_form',
-					'label' => 'Form liên hệ',
+					'label' => 'Tư vấn',
 					'type'  => 'tab',
 				),
-				array(
-					'key'           => 'field_contact_form_shortcode',
-					'label'         => 'Shortcode form',
-					'name'          => 'contact_form_shortcode',
-					'type'          => 'text',
-					'instructions'  => 'Ví dụ: [fluentform id="1"]',
-				),
+                array(
+                    'key' => 'field_contact_consultation_note',
+                    'label' => 'Section tư vấn đồng bộ trang chủ',
+                    'type' => 'message',
+                    'message' => 'Form, ảnh minh họa và nội dung tư vấn dùng chung với Trang chủ → Tư vấn. Thông tin công ty phía trên sửa tại tab Thông tin liên hệ. Các dòng được điền ban đầu từ chân trang. Bản đồ mặc định theo địa chỉ chân trang, có thể thay mã nhúng ở tab Bản đồ.',
+                ),
 				array(
 					'key'   => 'field_contact_tab_map',
 					'label' => 'Bản đồ',

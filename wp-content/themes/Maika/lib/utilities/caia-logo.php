@@ -28,11 +28,12 @@ function caia_add_button_logo(){
 }
 
 add_action( 'admin_enqueue_scripts', 'caia_include_js' );
-function caia_include_js() {
+function caia_include_js($hook) {
+    if (strpos($hook, 'caia-settings') === false) { return; }
 	if ( ! did_action( 'wp_enqueue_media' ) ) {
 		wp_enqueue_media();
 	}
- 	wp_enqueue_script( 'caiauploadlogo', home_url() . '/wp-content/themes/caia/lib/utilities/js/edit-logo.js', array( 'jquery' ) );
+ 	wp_enqueue_script( 'caiauploadlogo', get_stylesheet_directory_uri() . '/lib/utilities/js/edit-logo.js', array( 'jquery', 'media-views' ), filemtime(__DIR__ . '/js/edit-logo.js'), true );
 }
 
 add_action( 'wp_head', 'caia_custom_logo_css' );

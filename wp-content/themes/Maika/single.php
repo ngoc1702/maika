@@ -41,26 +41,5 @@ function add_post_thumbnail_to_content( $content ) {
 add_filter( 'the_content', 'add_post_thumbnail_to_content' );
 
 
-// Thêm bài viết liên quan
-add_action( 'genesis_before_sidebar_widget_area', 'caia_add_post_YARPP');
-function caia_add_post_YARPP(){
-	yarpp_related(
-		array(
-			'post_type' => 'post',
-			'threshold' => 1,
-			'template' => 'yarpp-template-post.php',
-			'limit' => 5,
-		)
-	);
-}
-
-add_action('genesis_before_sidebar_widget_area', 'add_product_info',9);
-function add_product_info(){
-if( is_active_sidebar( 'content-tuvan' ) ){
-		echo '<div class="content-tuvan section"><div class="wrap">';
-			dynamic_sidebar( 'Sản phẩm - Hỗ trợ tư vấn' );
-		echo '</div></div>';
-	}
-}
-
+// Related sidebar is handled by custom/single-post.php.
 genesis();

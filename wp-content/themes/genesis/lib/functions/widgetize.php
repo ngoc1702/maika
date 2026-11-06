@@ -139,16 +139,16 @@ function _genesis_register_default_widget_areas_cb() {
 		);
 	}
 
-	add_action('widgets_init', function () {
-		genesis_register_widget_area(
-			[
-				'id'               => 'header-main',
-				'name'             => __('Header Main', 'genesis'),
-				'description'      => __('This is the main header widget area. It can be used for a menu, logo, search, or custom content.', 'genesis'),
-				'_genesis_builtin' => true,
-			]
-		);
-	});   
+	// add_action('widgets_init', function () {
+	// 	genesis_register_widget_area(
+	// 		[
+	// 			'id'               => 'header-main',
+	// 			'name'             => __('Header Main', 'genesis'),
+	// 			'description'      => __('This is the main header widget area. It can be used for a menu, logo, search, or custom content.', 'genesis'),
+	// 			'_genesis_builtin' => true,
+	// 		]
+	// 	);
+	// });   
 
 	if ( isset( $wp_registered_sidebars['sidebar'] ) ) {
 		genesis_register_widget_area(

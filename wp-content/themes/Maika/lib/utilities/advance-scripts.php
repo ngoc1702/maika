@@ -78,7 +78,9 @@ if( defined('CAIA_SETTINGS_FIELD') )
 			return;
 		}else{
 			$ads_txt_file = ABSPATH . 'ads.txt';
-			file_put_contents($ads_txt_file, $ads_txt_content);
+			if (!file_exists($ads_txt_file) || file_get_contents($ads_txt_file) !== $ads_txt_content) {
+                file_put_contents($ads_txt_file, $ads_txt_content);
+            }
 		}
 	}
 
@@ -92,7 +94,9 @@ if( defined('CAIA_SETTINGS_FIELD') )
 			return;
 		}else{
 			$robots_txt_file = ABSPATH . 'robots.txt';
-			file_put_contents($robots_txt_file, $robots_txt_content);
+			if (!file_exists($robots_txt_file) || file_get_contents($robots_txt_file) !== $robots_txt_content) {
+                file_put_contents($robots_txt_file, $robots_txt_content);
+            }
 		}
 	}
 
