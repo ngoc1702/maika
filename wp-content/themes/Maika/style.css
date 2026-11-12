@@ -1582,7 +1582,7 @@ h2 a:hover,
   background-repeat: no-repeat;
   color: #e1eaf4;
 }
-.before_footer .wrap-section {
+.before_footer .wrap-section { 
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr) minmax(0, 1.1fr);
   gap: 64px;
@@ -1593,7 +1593,7 @@ h2 a:hover,
   min-width: 0;
   margin: 0;
   padding: 0;
-}
+} 
 .before_footer .widget-title {
   display: block;
   margin: 0 0 20px;
@@ -2439,6 +2439,8 @@ h2 a:hover,
   position: relative;
   z-index: 1;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   flex: 0 0 184px;
   height: 112px;
   padding: 14px;
@@ -2450,6 +2452,8 @@ h2 a:hover,
   display: block;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
   max-height: 82px;
   margin: 0;
   object-fit: contain;
@@ -2824,11 +2828,15 @@ h2 a:hover,
 }
 .maika-product-thumbnails button {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  place-items: center;
   flex: 0 0 84px;
   height: 84px;
   padding: 6px;
   border: 1px solid #d7d7d7;
   border-radius: 6px;
+  overflow: hidden;
   background: #fff;
   cursor: pointer;
 }
@@ -2841,8 +2849,12 @@ h2 a:hover,
   outline-offset: 2px;
 }
 .single-product .maika-product-thumbnails img {
+  display: block;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-height: 100%;
   margin: 0;
   object-fit: contain;
   object-position: center;

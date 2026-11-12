@@ -17459,3 +17459,54 @@ Stack trace:
 [06-Nov-2026 02:25:38 UTC] PHP Warning:  Undefined array key "readmore" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 220
 [06-Nov-2026 02:25:38 UTC] PHP Warning:  Undefined array key "text" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 224
 [06-Nov-2026 02:25:38 UTC] PHP Warning:  Undefined array key "check" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 228
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "parameter" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\code-widget.php on line 54
+[12-Nov-2026 02:11:55 UTC] PHP Deprecated:  Hàm genesis_get_additional_image_sizes hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5.0! Sử dụng wp_get_additional_image_sizes để thay thế. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:11:55 UTC] PHP Deprecated:  Hàm genesis_get_additional_image_sizes hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5.0! Sử dụng wp_get_additional_image_sizes để thay thế. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "title" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 185
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "title_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 190
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "title_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 191
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "image_uri" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 198
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "image_uri" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 203
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "image_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 211
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "image_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 212
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "noidung" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 216
+[12-Nov-2026 02:11:55 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\laragon\www\maika\wp-includes\formatting.php on line 4802
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "readmore" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 220
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "text" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 224
+[12-Nov-2026 02:11:55 UTC] PHP Warning:  Undefined array key "check" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 228
+[12-Nov-2026 02:22:04 UTC] PHP Warning:  Undefined array key "parameter" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\code-widget.php on line 54
+[12-Nov-2026 02:22:04 UTC] PHP Deprecated:  Hàm genesis_get_additional_image_sizes hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5.0! Sử dụng wp_get_additional_image_sizes để thay thế. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:22:04 UTC] PHP Deprecated:  Hàm genesis_get_additional_image_sizes hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5.0! Sử dụng wp_get_additional_image_sizes để thay thế. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "title" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 185
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "title_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 190
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "title_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 191
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "image_uri" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 198
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "image_uri" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 203
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "image_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 211
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "image_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 212
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "noidung" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 216
+[12-Nov-2026 02:22:05 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\laragon\www\maika\wp-includes\formatting.php on line 4802
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "readmore" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 220
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "text" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 224
+[12-Nov-2026 02:22:05 UTC] PHP Warning:  Undefined array key "check" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 228
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "parameter" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\code-widget.php on line 54
+[12-Nov-2026 02:29:07 UTC] PHP Deprecated:  Hàm genesis_get_additional_image_sizes hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5.0! Sử dụng wp_get_additional_image_sizes để thay thế. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:29:07 UTC] PHP Deprecated:  Hàm genesis_get_additional_image_sizes hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5.0! Sử dụng wp_get_additional_image_sizes để thay thế. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "title" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 185
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "title_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 190
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "title_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 191
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "image_uri" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 198
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "image_uri" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 203
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "image_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 211
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "image_alignment" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 212
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "noidung" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 216
+[12-Nov-2026 02:29:07 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\laragon\www\maika\wp-includes\formatting.php on line 4802
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "readmore" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 220
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "text" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 224
+[12-Nov-2026 02:29:07 UTC] PHP Warning:  Undefined array key "check" in C:\laragon\www\maika\wp-content\themes\Maika\lib\widgets\image-upload-widget.php on line 228
+[12-Nov-2026 02:30:10 UTC] PHP Deprecated:  Tệp class-phpmailer.php is <strong>không dùng nữa</strong> kể từ phiên bản 5.5.0! Sử dụng wp-includes/PHPMailer/PHPMailer.php để thay thế. The PHPMailer class has been moved to wp-includes/PHPMailer subdirectory and now uses the PHPMailer\PHPMailer namespace. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:30:10 UTC] PHP Deprecated:  Tệp class-smtp.php is <strong>không dùng nữa</strong> kể từ phiên bản 5.5.0! Sử dụng wp-includes/PHPMailer/SMTP.php để thay thế. The SMTP class has been moved to the wp-includes/PHPMailer subdirectory and now uses the PHPMailer\PHPMailer namespace. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:30:27 UTC] PHP Deprecated:  Hook whitelist_options đã bị <strong>loại bỏ</strong> từ phiên bản 5.5.0! Hãy sử dụng allowed_options. Vui lòng cân nhắc viết mã mang tính bao hàm hơn. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:30:28 UTC] PHP Deprecated:  Tệp class-phpmailer.php is <strong>không dùng nữa</strong> kể từ phiên bản 5.5.0! Sử dụng wp-includes/PHPMailer/PHPMailer.php để thay thế. The PHPMailer class has been moved to wp-includes/PHPMailer subdirectory and now uses the PHPMailer\PHPMailer namespace. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:30:28 UTC] PHP Deprecated:  Tệp class-smtp.php is <strong>không dùng nữa</strong> kể từ phiên bản 5.5.0! Sử dụng wp-includes/PHPMailer/SMTP.php để thay thế. The SMTP class has been moved to the wp-includes/PHPMailer subdirectory and now uses the PHPMailer\PHPMailer namespace. in C:\laragon\www\maika\wp-includes\functions.php on line 6260
+[12-Nov-2026 02:36:15 UTC] PHP Warning:  Undefined array key "action" in C:\laragon\www\maika\wp-content\themes\Maika\lib\utilities\caia-user-roles.php on line 167
